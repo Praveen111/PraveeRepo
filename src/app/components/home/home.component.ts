@@ -1,12 +1,13 @@
-import { Component,OnInit } from '@angular/core';
-import { MyService } from '../app/my.service';
+import { Component, OnInit } from '@angular/core';
+import { MyService } from'../../my.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class AppComponent implements OnInit {
+export class HomeComponent implements OnInit {
   title = 'app works!';
   planets = [];
   final: any;
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
   time_taken: number = 0;
   result: string;
   show: boolean = false;
-  constructor(private _myservice: MyService) {}
+  constructor(private _myservice: MyService, private route : Router) {}
 
   ngOnInit() {
     //gets planets objects
@@ -153,9 +154,15 @@ onCheck(val, id, event) {
     this._myservice.findFalcone(final).then(data => {
 
       console.log('findFalcone response:', data);
-      if (data.status == "success")
-        this.result = data.planet_name
+      if (data.status == "success"){
+ this.result = data.planet_name
 
+      }
+else{
+alert('Status:findFalcone failed');
+console.log('status failure');
+
+}
     }).catch(reason => {
       alert(reason);
     })
@@ -163,4 +170,5 @@ onCheck(val, id, event) {
   }
 
   }
+
 
