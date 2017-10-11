@@ -5,63 +5,67 @@
   <!--{{planets | json}}-->
 
 
-  <div class="form-group" id="1" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group1" id="1" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 1:</label>
-    <select class="form-control" (change)="onChange($event.target.value);">
+    <select class="form-control1" (change)="onChange($event);">
     <option selected value> -- select an option -- </option>
     <option *ngFor = 'let planet of planets; let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-
-    <div class="radio" *ngFor='let vehicle of vehicles;let i = index'>
+  <div class="radio1" [style.visibility]="value1">
+    <div *ngFor='let vehicle of vehicles;let i = index' (change)='radioFun($event)'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,0,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
+</div>
 
   </div>
 
 
-  <div class="form-group" id="2" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group2" id="2" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 2:</label>
-    <select class="form-control" (change)="onChange($event.target.value);">
+    <select class="form-control2" (change)="onChange($event);">
     <option selected value> -- select an option -- </option>
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-
-    <div class="radio" *ngFor='let vehicle of vehicles; let i = index'>
+<div class="radio2" [style.visibility]="value1">
+    <div *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,1,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
+</div>
 
   </div>
 
-  <div class="form-group" id="3" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group3" id="3" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 3:</label>
-    <select class="form-control" (change)="onChange($event.target.value);">
+    <select class="form-control3" (change)="onChange($event);">
     <option selected value> -- select an option -- </option>
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-
-    <div class="radio" *ngFor='let vehicle of vehicles; let i = index'>
+<div class="radio3" style="visibility: hidden">
+    <div  *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,2,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
+</div>
 
   </div>
 
-  <div class="form-group" id="4" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group4" id="4" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 4:</label>
-    <select class="form-control" (change)="onChange($event.target.value);">
+    <select class="form-control4" (change)="onChange($event);">
     <option selected value> -- select an option -- </option>
+
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-
-    <div class="radio" *ngFor='let vehicle of vehicles; let i = index'>
+<div class="radio4" style="visibility: hidden">
+    <div *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,3,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
+</div>
 
   </div>
-
 
   <br>
   <br>
@@ -69,8 +73,10 @@
 </div>
 
 <div>
-  <button type="button" class="btn btn-default" style="margin: 0 auto;" (click)='findFalcone()' [routerLink]="['/result']">Find</button>
-  <h3>Time Taken: {{time_taken}}</h3>
-  <h1>Found in : {{result}}</h1>
+  <button type="button" class="btn btn-default" style="margin: 0 auto;" (click)='findFalcone()'>Find</button>
+
 </div>
+
+
+
 

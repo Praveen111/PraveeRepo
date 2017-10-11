@@ -5,7 +5,10 @@ import 'rxjs';
 @Injectable()
 export class MyService {
 
-  constructor(private http: Http) {}
+public results :any;
+  constructor(private http: Http) {
+
+  }
 
   getPlanets() {
     let headers = new Headers();
@@ -49,6 +52,18 @@ export class MyService {
       .map((res: Response) => res.json()).toPromise();
     //return this.http.post('',data,{ headers : headers})
 
+  }
+
+  setResult(data){
+     this.results = data;
+     console.log('results',this.results);
+
+  }
+
+  getResult(){
+    console.log('get results',this.results);
+
+      return this.results;
   }
 
 }
