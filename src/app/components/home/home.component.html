@@ -27,7 +27,7 @@
 
 <div #radio2 style="visibility: hidden" disabled>
     <div *ngFor='let vehicle of vehicles; let i = index'>
-      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,1,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
+      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,1,$event)'>{{vehicle.name}} ({{vehicle.total_no}})</label>
     </div>
 </div>
 
@@ -42,7 +42,7 @@
 
 <div #radio3 style="visibility: hidden">
     <div  *ngFor='let vehicle of vehicles; let i = index'>
-      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,2,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
+      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,2,$event)'>{{vehicle.name}} ({{vehicle.total_no}})</label>
     </div>
 </div>
 
@@ -58,7 +58,7 @@
 
 <div #radio4 style="visibility: hidden">
     <div *ngFor='let vehicle of vehicles; let i = index'>
-      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,3,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
+      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,3,$event)'>{{vehicle.name}} ({{vehicle.total_no}})</label>
     </div>
 </div>
 

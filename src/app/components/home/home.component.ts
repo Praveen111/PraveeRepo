@@ -91,9 +91,6 @@ export class HomeComponent implements OnInit {
 
         if (this.planet_names.indexOf(this.planet_names[indexP1]) == -1) {
 
-
-
-
           switch (id) {
             case 2:
 
@@ -146,16 +143,11 @@ export class HomeComponent implements OnInit {
 
       if (this.vehicles[indexV].max_distance >= this.planets[indexP].distance) {
 
-
-
           if (this.vehicles[indexV].total_no == 0) {
             event.target.disabled = true;
           }
 
-
-
         let pDistance = this.planets[indexP].distance; // fetches distance of a planet
-
 
         let time_taken1 = (pDistance / this.vehicles[indexV].speed); // calculates time taken to reach the planet
 
@@ -199,7 +191,6 @@ export class HomeComponent implements OnInit {
 
       } else {
         alert('Status:findFalcone failed');
-        this.route.navigate(['home']);
 
       }
     }).catch(reason => {
