@@ -1,34 +1,31 @@
-<h1>Find Falcone !!!</h1>
 
 <div class="container" style="display: -webkit-box;">
 
   <!--{{planets | json}}-->
-
-
-  <div class="form-group1" id="1" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group" id="1" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 1:</label>
-    <select class="form-control1" (change)="onChange($event);">
+    <select #s1 class="form-control" (change)="onChange($event,1);">
     <option selected value> -- select an option -- </option>
-    <option *ngFor = 'let planet of planets; let i = index' [attr.id]="i">{{planet.name}}</option>
+    <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-  <div class="radio1" [style.visibility]="value1">
-    <div *ngFor='let vehicle of vehicles;let i = index' (change)='radioFun($event)'>
-      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,0,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
+<div #radio1 style="visibility: hidden">
+    <div *ngFor='let vehicle of vehicles; let i = index'>
+      <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,0,$event)'>{{vehicle.name}} ({{vehicle.total_no}})</label>
     </div>
 </div>
 
   </div>
 
 
-  <div class="form-group2" id="2" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group" id="2" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 2:</label>
-    <select class="form-control2" (change)="onChange($event);">
+    <select #s2 class="form-control" (change)="onChange($event,2);">
     <option selected value> -- select an option -- </option>
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-<div class="radio2" [style.visibility]="value1">
+<div #radio2 style="visibility: hidden" disabled>
     <div *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,1,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
@@ -36,14 +33,14 @@
 
   </div>
 
-  <div class="form-group3" id="3" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group" id="3" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 3:</label>
-    <select class="form-control3" (change)="onChange($event);">
+    <select #s3 class="form-control" (change)="onChange($event,3);">
     <option selected value> -- select an option -- </option>
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-<div class="radio3" style="visibility: hidden">
+<div #radio3 style="visibility: hidden">
     <div  *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,2,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
@@ -51,15 +48,15 @@
 
   </div>
 
-  <div class="form-group4" id="4" style="width: fit-content;margin-left: 30px;">
+  <div class="form-group" id="4" style="width: fit-content;margin-left: 30px;">
     <label for="sel1">Destination 4:</label>
-    <select class="form-control4" (change)="onChange($event);">
+    <select #s4 class="form-control" (change)="onChange($event,4);">
     <option selected value> -- select an option -- </option>
 
     <option *ngFor = 'let planet of planets;let i = index' [attr.id]="i">{{planet.name}}</option>
   </select>
 
-<div class="radio4" style="visibility: hidden">
+<div #radio4 style="visibility: hidden">
     <div *ngFor='let vehicle of vehicles; let i = index'>
       <label><input type="radio" [attr.id]="i" (click)='onCheck(vehicle.name,3,$event)'>{{vehicle.name}} {{vehicle.total_no}}</label>
     </div>
@@ -71,10 +68,11 @@
   <br>
 
 </div>
+<br><br>
+<div style="text-align: center;"> <h2><b>Time taken :</b>{{time_taken}}</h2></div>
 
 <div>
-  <button type="button" class="btn btn-default" style="margin: 0 auto;" (click)='findFalcone()'>Find</button>
-
+ <input #findF type="button" class="btn btn-info" value="Find" style="display: block; margin: 0 auto;width: 120px;height: 25pt;" (click)='findFalcone()'>
 </div>
 
 

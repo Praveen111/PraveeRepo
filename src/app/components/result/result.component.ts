@@ -1,7 +1,6 @@
 import { Component, OnInit,Output, Input, EventEmitter } from '@angular/core';
-import { Resolve } from '@angular/router';
 import { MyService } from'../../my.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -11,7 +10,7 @@ import { MyService } from'../../my.service';
 export class ResultComponent implements OnInit {
   public planet: string;
   public time_taken1: string;
-  constructor(private _myservice: MyService) {}
+  constructor(private _myservice: MyService, private router : Router) {}
 
   ngOnInit() {
 
@@ -21,6 +20,9 @@ export class ResultComponent implements OnInit {
     this.time_taken1 = data.time_taken;
   }
 
+redirect(){
+this.router.navigate(['']);
+}
 
 }
 
